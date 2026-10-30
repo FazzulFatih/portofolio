@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Mahasiswa</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f9fc;
+            color: #253247;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1080px;
+            margin: auto;
+        }
+
+        /* NAVBAR */
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid #e3eaf2;
+            z-index: 10;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #14243b;
+        }
+
+        .logo span {
+            color: #3268a8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #526176;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #3268a8;
+        }
+
+        /* HOME */
+        .hero {
+            padding: 90px 0;
+            background: linear-gradient(
+                135deg, #f7f9fc, #dceafa
+            );
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.5fr 0.8fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: #14243b;
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: #3268a8;
+        }
+
+        .hero p {
+            color: #66758a;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #3268a8;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background: #14243b;
+        }
+
+        .profile {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px #00000012;
+        }
+
+        .avatar {
+            width: 130px;
+            height: 130px;
+            background: #3268a8;
+            color: white;
+            border-radius: 50%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        /* SECTION */
+        section {
+            padding: 70px 0;
+        }
+
+        .judul {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .judul h2 {
+            color: #14243b;
+            font-size: 32px;
+        }
+
+        .judul p {
+            color: #66758a;
+        }
+
+        /* ABOUT ME */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e3eaf2;
+            box-shadow: 0 5px 20px #00000008;
+        }
+
+        .card h3 {
+            color: #14243b;
+            margin-bottom: 15px;
+        }
+
+        .detail {
+            background: #f5f8fc;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+        }
+
+        .detail small {
+            display: block;
+            color: #66758a;
+        }
+
+        /* WHAT I CAN DO */
+        #skills {
+            background: #eef3f9;
+        }
+
+        .skills-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e3eaf2;
+        }
+
+        .skill-card h3 {
+            color: #3268a8;
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eaf2fb;
+            color: #3268a8;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin: 10px 3px 0 0;
+            font-size: 13px;
+        }
+
+        /* ACHIEVEMENT */
+        .achievement-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 25px;
+            border-left: 4px solid #3268a8;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px #00000008;
+        }
+
+        .achievement-card h3 {
+            color: #14243b;
+            margin: 10px 0;
+        }
+
+        .tahun {
+            color: #3268a8;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+        #contact {
+            background: #eef3f9;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-item {
+            background: #f5f8fc;
+            padding: 13px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: #14243b;
+        }
+
+        .contact-item a {
+            color: #3268a8;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #14243b;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 760px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .skills-content,
+            .achievement-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="container">
+            <div class="logo">PORTO<span>FOLIO.</span></div>
+
+            <div class="nav-links">
+                <a href="#about">About Me</a>
+                <a href="#skills">What I Can Do</a>
+                <a href="#achievement">Achievement</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="hero">
+        <div class="container hero-content">
+
+            <div>
+                <p>Mahasiswa Sistem Informasi</p>
+
+                <h1>
+                    Halo, saya <span>Tafazzul Fatih Hisyam.</span>
+                </h1>
+
+                <p>
+                    Saya mahasiswa Sistem Informasi yang tertarik
+                    pada teknologi, pemrograman, pengembangan web,
+                    dan pengolahan data. Saya senang mempelajari
+                    hal baru untuk mengembangkan kemampuan diri.
+                </p>
+
+                <a href="#about" class="btn">Kenali Saya</a>
+                <a href="#contact" class="btn">Hubungi Saya</a>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">TF</div>
+                <h3>Tafazzul Fatih Hisyam</h3>
+                <p>Mahasiswa Sistem Informasi</p>
+                <p>Universitas Negeri Surabaya</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about">
+        <div class="container">
+
+            <div class="judul">
+                <h2>About Me</h2>
+                <p>Kenali profil dan latar belakang saya.</p>
+            </div>
+
+            <div class="about-content">
+
+                <div class="card">
+                    <h3>Tentang Saya</h3>
+
+                    <p>
+                        Perkenalkan, saya Tafazzul Fatih Hisyam, mahasiswa
+                        Program Studi Sistem Informasi. Saat ini
+                        saya sedang mempelajari dasar pemrograman,
+                        teknologi informasi, dan analisis sistem.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Saya memiliki semangat belajar yang tinggi,
+                        senang mencoba hal baru, serta ingin terus
+                        mengembangkan kemampuan di bidang teknologi.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Informasi Pribadi</h3>
+
+                    <div class="detail">
+                        <small>Nama</small>
+                        <strong>Tafazzul Fatih Hisyam</strong>
+                    </div>
+
+                    <div class="detail">
+                        <small>NIM</small>
+                        <strong>26051214225</strong>
+                    </div>
+
+                    <div class="detail">
+                        <small>Program Studi</small>
+                        <strong>Sistem Informasi</strong>
+                    </div>
+
+                    <div class="detail">
+                        <small>Pendidikan</small>
+                        <strong>S1</strong>
+                    </div>
+
+                    <div class="detail">
+                        <small>Aktivitas</small>
+                        <strong>Kuliah dan Belajar Mandiri</strong>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT I CAN DO -->
+    <section id="skills">
+        <div class="container">
+
+            <div class="judul">
+                <h2>What I Can Do</h2>
+                <p>Kemampuan dan tools yang saya pelajari.</p>
+            </div>
+
+            <div class="skills-content">
+
+                <div class="skill-card">
+                    <h3>Pemrograman Dasar</h3>
+
+                    <p>
+                        Memahami logika algoritma dan membuat
+                        program sederhana.
+                    </p>
+
+                    <span class="tag">Python</span>
+                    <span class="tag">Algoritma</span>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+
+                    <p>
+                        Membuat halaman website sederhana
+                        dengan tampilan responsif.
+                    </p>
+
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Produktivitas</h3>
+
+                    <p>
+                        Membuat dokumen, presentasi,
+                        dan mengolah data sederhana.
+                    </p>
+
+                    <span class="tag">Word</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">PowerPoint</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENT -->
+    <section id="achievement">
+        <div class="container">
+
+            <div class="judul">
+                <h2>Achievement</h2>
+                <p>Pencapaian dan pengalaman saya.</p>
+            </div>
+
+            <div class="achievement-content">
+
+                <div class="achievement-card">
+                    <span class="tahun">2026</span>
+
+                    <h3>Mahasiswa Sistem Informasi</h3>
+
+                    <p>
+                        Memulai perjalanan pendidikan tinggi
+                        dan mempelajari dasar teknologi informasi.
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <span class="tahun">2026</span>
+
+                    <h3>Website Portofolio</h3>
+
+                    <p>
+                        Membuat website portofolio pribadi
+                        sebagai latihan HTML dan CSS, serta belajar python.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+
+            <div class="judul">
+                <h2>Contact</h2>
+                <p>Hubungi saya melalui informasi berikut.</p>
+            </div>
+
+            <div class="contact-content">
+
+                <div class="card">
+                    <h3>Mari Terhubung!</h3>
+
+                    <p>
+                        Saya terbuka untuk berdiskusi,
+                        berkolaborasi, dan belajar bersama
+                        dengan orang-orang baru.
+                    </p>
+                </div>
+
+                <div class="card">
+
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        fazzulfatih@email.com
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>GitHub</strong>
+                        <a href="https://github.com/username">
+                            github.com/username
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>LinkedIn</strong>
+                        <a href="https://www.linkedin.com/in/tafazzul-fatih-hisyam-043a12440?utm_source=share_via&utm_content=profile&utm_medium=member_ios">
+                            https://www.linkedin.com/in/tafazzul-fatih-hisyam-043a12440?utm_source=share_via&utm_content=profile&utm_medium=member_ios
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>CV / Resume</strong>
+                        <a href="#">Lihat CV Saya</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 Tafazzul Fatih Hisyam |
+            Website Portofolio Mahasiswa Sistem Informasi
+        </p>
+    </footer>
+
+</body>
+</html>
